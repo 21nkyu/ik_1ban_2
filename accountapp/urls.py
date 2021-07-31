@@ -5,7 +5,7 @@ from accountapp.views import hello_1
 app_name = 'accountapp'
 
 urlpatterns = [
-    path('overpower/', hello_1, name='hello world')
+    path('overpower/', hello_1, name='hello_world')
 
 ]
 
