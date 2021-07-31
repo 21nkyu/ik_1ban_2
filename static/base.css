@@ -1,0 +1,19 @@
+.fragment_logo{
+    text-align: center; margin-top: 2rem
+}
+
+.fragment_header_logo{
+    font-family: 'Nosifer', cursive;, sans-serif;
+}
+.fragment_header_button{
+    margin-bottom: 2rem;
+}
+
+.fragment_footer_logo{
+    font-family: 'Nosifer', cursive;
+    -webkit-transform: rotate(180deg);
+}
+
+.fragment_footer_button{
+    font-size: 0.6rem;
+}
