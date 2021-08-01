@@ -26,3 +26,14 @@
 .hideline{
     text-decoration: none;
 }
+
+.profile_image{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 20rem;
+    object-fit: cover;
+}
+
+.NNS_N{
+    font-family: 'NanumSquareB', cursive;
+}
