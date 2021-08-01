@@ -15,8 +15,11 @@
                 <a href="{% url 'accountapp:create' %}" class="hideline"> Sign up </a>
             </span>
         {% else %}
-             <span>
-                  <a href="{% url 'accountapp:logout' %}" class="hideline">  Logout </a>
+            <span>
+                <a href="{% url 'accountapp:detail' pk=user.pk %}">  Mypage</a>
+            </span>
+            <span>
+                <a href="{% url 'accountapp:logout' %}" class="hideline">  Logout </a>
              </span>
         {% endif %}
     </div>
