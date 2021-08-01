@@ -37,3 +37,19 @@
 .NNS_N{
     font-family: 'NanumSquareB', cursive;
 }
+
+.hr_deg {
+
+/*-webkit-transform: rotate(10deg);*/
+
+transform: rotate(10deg);
+}
+
+.hr_3{
+    border: 0;
+    height: 3px;
+    background: black;
+}
+
+
+

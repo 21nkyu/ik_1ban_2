@@ -26,23 +26,26 @@ def hello_1(request):
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
     else:
         hello_1_list = accapp_HelloWorld.objects.all()
-        return render(request, 'accountapp/overpower.html', context={'hello_1_list': hello_1_list})
+        return render(request, 'accountapp/overpower.html',
+                      context={'hello_1_list': hello_1_list})
 
-has_ownership = [login_required, account_ownership_required]
+
 
 class AccountCreateview(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world')
+    # success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/create.html'
 
-
-
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
 
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
+
+has_ownership = [login_required, account_ownership_required]
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
@@ -50,8 +53,11 @@ class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountCreationForm
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:hello_world')
+    # success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/update.html'
+
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
