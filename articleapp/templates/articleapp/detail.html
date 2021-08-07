@@ -17,7 +17,7 @@
             <div class="article_content">
                 {{ target_article.content }}
             </div>
-            <hr>
+            <hr class="hr_deg">
             {% if target_article.writer == user %}
             <div>
                 <a href="{% url 'articleapp:update' pk=target_article.pk %}"
