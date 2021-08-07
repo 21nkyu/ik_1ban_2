@@ -51,5 +51,16 @@ transform: rotate(10deg);
     background: black;
 }
 
+.round_button{
+    color: rebeccapurple;
+    text-decoration: none;
+    box-shadow: 0 0 3px black;
+    border-radius: 20rem;
+    padding: 0.3rem;
+}
+/*none 밑줄제거*/
 
+.round_button:hover {
+    color: dimgray;
+}
 
