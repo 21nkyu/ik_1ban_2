@@ -75,3 +75,11 @@ transform: rotate(10deg);
     text-align: left;
     margin: 2rem 0;
 }
+
+.a_tag_color{
+    color: orangered;
+}
+
+.a_tag_color:hover{
+    color: olivedrab;
+}
