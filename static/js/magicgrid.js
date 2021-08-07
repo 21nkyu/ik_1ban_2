@@ -285,3 +285,13 @@ let magicGrid = new MagicGrid({
 });
 
 magicGrid.listen();
+
+var masonrys = document.getElementsByTagName("img")
+
+for (let i = 0; 1 < masonrys.length; i++){
+  masonrys[i].addEventListener( 'load', function () {
+    magicGrid.positionItems()
+  }, false)
+}
+
+magicGrid.listen();
