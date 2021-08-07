@@ -64,3 +64,14 @@ transform: rotate(10deg);
     color: dimgray;
 }
 
+.article_image{
+    border-radius: 2rem;
+    width: 60%;
+    box-shadow: 0 0 1rem gray;
+}
+
+.article_content{
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 2rem 0;
+}
