@@ -11,6 +11,7 @@ from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountCreationForm
 from accountapp.models import accapp_HelloWorld
 
+
 @login_required
 def hello_1(request):
 
@@ -22,7 +23,6 @@ def hello_1(request):
         new_hello_1.text = temp
         new_hello_1.save()
 
-
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
     else:
         hello_1_list = accapp_HelloWorld.objects.all()
@@ -30,22 +30,24 @@ def hello_1(request):
                       context={'hello_1_list': hello_1_list})
 
 
-
-class AccountCreateview(CreateView):
+class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
     # success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/create.html'
 
     def get_success_url(self):
-        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
+        return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
+
 
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
 
+
 has_ownership = [login_required, account_ownership_required]
+
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
@@ -58,6 +60,7 @@ class AccountUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
+
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')

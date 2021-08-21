@@ -44,6 +44,12 @@
                     <div class="my-2">
                         <p>{{ comment.content }}</p>
                     </div>
+                    <div>
+                        <a href="{% url 'commentapp:delete' pk=comment.pk %}"
+                           class="btn btn-danger rounded-pill px-5">
+                            Delete
+                        </a>
+                    </div>
 
                 </div>
 
