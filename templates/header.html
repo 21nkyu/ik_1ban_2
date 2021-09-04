@@ -1,24 +1,28 @@
 <div class="fragment_logo hr_deg">
     <div>
-        <h1 class="fragment_header_logo">
-            Fragment
-        </h1>
+        <span>
+            <h1 class="fragment_header_logo">
+                <a href="{% url 'articleapp:list' %}" class="hideline" style="color: red;">
+                        Fragment
+                </a>
+            </h1>
+        </span>
     </div>
     <div class="fragment_header_button">
-        <span>
+        <span class="mx-2">
             <a href="{% url 'articleapp:list' %}"
             class="hideline">
                 Articles
             </a>
         </span>
-        <span>
+        <span class="mx-2">
             <a href="{% url 'projectapp:list' %}"
             class="hideline">
                 Projects
             </a>
         </span>
         {% if user.is_authenticated %}
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'subscribeapp:list' %}"
                 class="hideline">
                     Subscription
@@ -26,17 +30,17 @@
             </span>
         {% endif %}
         {% if not user.is_authenticated %}
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'accountapp:login' %}" class="hideline"> Login </a>
             </span>
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'accountapp:create' %}" class="hideline"> Sign up </a>
             </span>
         {% else %}
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'accountapp:detail' pk=user.pk %}" class="hideline">  Mypage</a>
             </span>
-            <span>
+            <span class="mx-2">
                 <a href="{% url 'accountapp:logout' %}" class="hideline">  Logout </a>
              </span>
         {% endif %}

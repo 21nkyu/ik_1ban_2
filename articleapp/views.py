@@ -18,12 +18,15 @@ from commentapp.forms import CommentCreationForm
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleCreationForm
-    success_url = reverse_lazy( 'accountapp:hello_world')
+    # success_url = reverse_lazy( 'accountapp:hello_world')
     template_name = 'articleapp/create.html'
 
     def form_valid(self, form):
         form.instance.writer = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
 
 
 class ArticleDetailView(DetailView, FormMixin):
@@ -58,4 +61,4 @@ class ArticleListView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'articleapp/list.html'
-    paginate_by = 20
+    paginate_by = 2

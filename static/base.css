@@ -4,6 +4,7 @@
 
 .fragment_header_logo{
     font-family: 'Nosifer', cursive;, sans-serif;
+    color: red;
 }
 .fragment_header_button{
     margin-bottom: 2rem;
@@ -12,6 +13,7 @@
 .fragment_footer_logo{
     font-family: 'Nosifer', cursive;
     -webkit-transform: rotate(180deg);
+    color: red;
 }
 
 .fragment_footer_button{
@@ -23,10 +25,6 @@
     margin: 1rem 1.5rem;
 }
 
-.hideline{
-    text-decoration: none;
-}
-
 .profile_image{
     width: 12rem;
     height: 12rem;
@@ -36,13 +34,6 @@
 
 .NNS_N{
     font-family: 'NanumSquareB', cursive;
-}
-
-.hr_deg {
-
-/*-webkit-transform: rotate(10deg);*/
-
-transform: rotate(10deg);
 }
 
 .hr_3{
@@ -94,8 +85,36 @@ transform: rotate(10deg);
     font-size: 1.1rem;
 }
 
+a{
+    color: black;
+}
+
 @media screen and (max-width: 500px) {
     html {
         font-size: 13px;
     }
+}
+
+
+/*내가 만든 것*/
+.hideline{
+    text-decoration: none;
+}
+
+.hr_deg {
+
+/*-webkit-transform: rotate(10deg);*/
+
+transform: rotate(10deg);
+}
+
+.hr_xx { height: 1px;
+
+background: #bbb; background-image: -webkit-linear-gradient(left, #eee, #777, #eee);
+
+background-image: -moz-linear-gradient(left, #eee, #777, #eee);
+
+background-image: -ms-linear-gradient(left, #eee, #777, #eee);
+
+background-image: -o-linear-gradient(left, #eee, #777, #eee);
 }
