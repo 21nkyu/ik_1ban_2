@@ -12,13 +12,15 @@
             </a>
         </span>
         <span>
-            <a href="{% url 'projectapp:list' %}">
+            <a href="{% url 'projectapp:list' %}"
+            class="hideline">
                 Projects
             </a>
         </span>
         {% if user.is_authenticated %}
             <span>
-                <a href="{% url 'subscribeapp:list' %}">
+                <a href="{% url 'subscribeapp:list' %}"
+                class="hideline">
                     Subscription
                 </a>
             </span>
