@@ -1,0 +1,59 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx:1.19.5
+    networks:
+      - scd_1ban_2_network
+    volumes:
+      - scd_2_static:/data/static/
+      - scd_2_media:/data/media/
+      - /home/adele7178/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+    - 80:80
+
+  django:
+    image: scd_2_django:5
+    networks:
+      - scd_1ban_2_network
+    secrets:
+      - DJANGO_SECRET_KEY
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+    volumes:
+      - scd_2_static:/home/ik_1ban_2/staticfiles/
+      - scd_2_media:/home/ik_1ban_2/media/
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - scd_1ban_2_network
+    volumes:
+      - scd_2_mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD
+    environment:
+      MARIADB_DATABASE: django
+      MARIADB_USER_FILE: /run/secrets/MARIADB_USER
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
+
+networks:
+  scd_1ban_2_network:
+
+volumes:
+  scd_2_static:
+  scd_2_media:
+  scd_2_mariadb:
+
+secrets:
+  MARIADB_USER:
+    external: true
+  MARIADB_PASSWORD:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  DJANGO_SECRET_KEY:
+    external: true
+
